@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const app = express();
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "*",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -44,6 +44,6 @@ io.on("connection", (socket) => {
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
-app.listen(8000, () => console.log("Server ready on port 8000."));
+server.listen(3000, () => console.log("Server ready on port 3000."));
 
 module.exports = app;
