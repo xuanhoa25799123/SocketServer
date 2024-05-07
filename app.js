@@ -44,6 +44,6 @@ io.on("connection", (socket) => {
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
-app.listen(8000, () => console.log("Server ready on port 8000."));
+server.listen(8000, () => console.log("Server ready on port 8000."));
 
 module.exports = app;
