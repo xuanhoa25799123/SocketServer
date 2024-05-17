@@ -22,7 +22,8 @@ io.on("connection", (socket) => {
     onlineUsers[userId] = {
       connectedAt: new Date(),
       socketId: socket.id,
-    };
+    };    
+    console.log("User connected: " + userId );
     io.emit("user status", {
       userId,
       onlineUsers: Object.keys(onlineUsers),
@@ -36,6 +37,7 @@ io.on("connection", (socket) => {
       (key) => onlineUsers[key].socketId === socket.id
     );
     if (userId) {
+      console.log("User disconnect: " + userId );
       delete onlineUsers[userId];
       io.emit("user status", { userId, status: "offline" });
     }
